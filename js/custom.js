@@ -133,8 +133,7 @@
     }
   );
 
-  /* ---------------- 6. 阅读时长 ---------------- */
-  Array.prototype.forEach.call(
+  /* ---------------- 6. 阅读时长 ---------------- */  Array.prototype.forEach.call(
     document.querySelectorAll('.article'),
     function (article) {
       var meta = article.querySelector('.article-meta');
