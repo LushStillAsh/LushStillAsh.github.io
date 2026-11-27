@@ -200,6 +200,234 @@
 <p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261124172933071.png" alt="image-20261124172933071"></p>
 <p>13）循环语句</p>
 <p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261124204917091.png" alt="image-20261124204917091"></p>
+<p>14）编程第一步</p>
+<p>while循环</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125210959545.png" alt="image-20261125210959545"></p>
+<p>for循环</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125211525721.png" alt="image-20261125211525721"></p>
+<p>if条件控制</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125211859859.png" alt="image-20261125211859859"></p>
+<p>15）推导式</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>写法</th>
+<th>结果</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>列表推导式</td>
+<td><code>[表达式 for x in 可迭代 if 条件]</code></td>
+<td><code>list</code></td>
+<td>有序、可重复、立即生成、占内存</td>
+</tr>
+<tr>
+<td>集合推导式</td>
+<td><code>{表达式 for x in 可迭代 if 条件}</code></td>
+<td><code>set</code></td>
+<td>无序、自动去重、元素必须可哈希</td>
+</tr>
+<tr>
+<td>字典推导式</td>
+<td><code>{键: 值 for x in 可迭代 if 条件}</code></td>
+<td><code>dict</code></td>
+<td>键值对、键唯一、后出现的覆盖前面的</td>
+</tr>
+<tr>
+<td>元组（生成器表达式）</td>
+<td><code>(表达式 for x in 可迭代 if 条件)</code></td>
+<td><code>generator</code></td>
+<td>惰性求值、只能遍历一次、省内存</td>
+</tr>
+</tbody></table>
+<p>执行顺序：</p>
+<ol>
+<li><p>从可迭代对象依次取元素；</p>
+</li>
+<li><p>用 <code>if</code> 判断，不满足就跳过；</p>
+</li>
+<li><p>满足则计算“表达式”；</p>
+</li>
+<li><p>把结果收集起来。</p>
+<p><em><strong>要对每个元素做什么for元素in从哪里来if只要哪些</strong></em></p>
+<p>例：</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125213616774.png" alt="image-20261125213616774"></p>
+</li>
+</ol>
+<p>16）迭代器与生成器</p>
+<p><strong>迭代器是“能一个个取值的对象”，生成器是“用 yield 最省事地造出迭代器的方式”；两者都是惰性、一次性、省内存的。</strong></p>
+<p>迭代器</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125214235703.png" alt="image-20261125214235703"></p>
+<p>可用for循环</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125214403742.png" alt="image-20261125214403742"></p>
+<p>创建迭代器</p>
+<p>把一个类作为一个迭代器使用需要在类中实现两个方法 <strong>iter</strong>() 与 <strong>next</strong>() </p>
+<p><strong>iter</strong>() 方法返回一个特殊的迭代器对象， 这个迭代器对象实现了 <strong>next</strong>() 方法并通过 StopIteration 异常标识迭代的完成。</p>
+<p><strong>next</strong>() 方法会返回下一个迭代器对象。</p>
+<p>例：</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125214754893.png" alt="image-20261125214754893"></p>
+<p>下面print还可以用for循环</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125215108492.png" alt="image-20261125215108492"></p>
+<p>生成器</p>
+<p>使用了 <strong>yield</strong> 的函数被称为生成器</p>
+<p>yield可以在迭代过程中逐步产生值，而不是一次性返回所有结果</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125215342385.png" alt="image-20261125215342385"></p>
+<p>17)with</p>
+<p><code>with</code> 关键字为我们提供了一种优雅的方式来处理文件操作、数据库连接等需要明确释放资源的场景。</p>
+<p>优势</p>
+<ol>
+<li><p><strong>自动资源释放</strong>：确保资源在使用后被正确关闭</p>
+</li>
+<li><p><strong>代码简洁</strong>：减少样板代码</p>
+</li>
+<li><p><strong>异常安全</strong>：即使在代码块中发生异常，资源也会被正确释放</p>
+</li>
+<li><p><strong>可读性强</strong>：明确标识资源的作用域</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261125215949480.png" alt="image-20261125215949480"></p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><code>with</code></th>
+<th>关键字，声明一个“上下文管理”代码块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>expression</code></td>
+<td>任意表达式，求值后必须是一个<strong>上下文管理器</strong>对象（实现了 <code>__enter__</code> 和 <code>__exit__</code>）</td>
+</tr>
+<tr>
+<td><code>[as variable]</code></td>
+<td><strong>可选</strong>部分：把 <code>__enter__()</code> 的返回值绑定到变量 <code>variable</code>；<code>[]</code> 是语法书里的“可选”标记，不是真让你输入方括号</td>
+</tr>
+</tbody></table>
+<p>18）函数</p>
+<p>函数 &#x3D; 名字 + 参数（输入）+ 函数体（逻辑）+ 返回值（输出）；参数决定灵活性，作用域决定可见性，<code>return</code> 决定产出，别踩可变默认参数的坑</p>
+<p>格式</p>
+<p>def 函数名（参数列表）:<br>    函数体</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126091527645.png" alt="image-20261126091527645"></p>
+<p>比较大小</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126092238318.png" alt="image-20261126092238318"></p>
+<p>计算面积</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126093526140.png" alt="image-20261126093526140"></p>
+<p>函数调用</p>
+<p>定义一个函数：给了函数一个名称，指定了函数里包含的参数，和代码块结构。</p>
+<p>这个函数的基本结构完成以后，你可以通过另一个函数调用执行，也可以直接从 Python 命令提示符执行</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126160241431.png" alt="image-20261126160241431"></p>
+<p>参数传递</p>
+<p>类型属于对象，对象有不同类型的区分，变量是没有类型的</p>
+<p>a&#x3D;[1,2,3]</p>
+<p>[1,2,3]是list类型，变量 a 是没有类型，它仅仅是一个对象的引用</p>
+<p>strings, tuples, 和 numbers 是不可更改的对象，而 list,dict 等则是可以修改的对象</p>
+<p>不可变类型：</p>
+<p>变量赋值 <strong>a&#x3D;5</strong> 后再赋值 a&#x3D;10，a变为10</p>
+<p>可变：</p>
+<p>变量赋值a&#x3D;[1,2,3,4],在复制a[2]&#x3D;5,&#x3D;&#x3D;&gt; a&#x3D;[1,2,5,4]</p>
+<p>传不可变</p>
+<p> id()函数来查看内存地址变化</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126162347256.png" alt="image-20261126162347256"></p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126162404857.png" alt="image-20261126162404857"></p>
+<p>输出只有最后的改变了</p>
+<p>传可变</p>
+<p>可变对象在函数里修改了参数，那么在调用这个函数的函数里，原始的参数也被改变了</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126163609319.png" alt="image-20261126163609319"></p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126163641718.png" alt="image-20261126163641718"></p>
+<p>输出的全部是最后改变的</p>
+<p>参数</p>
+<table>
+<thead>
+<tr>
+<th>参数类型</th>
+<th>定义写法</th>
+<th>调用示例</th>
+<th>必须传？</th>
+<th>关键规则</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>必需参数</td>
+<td><code>def f(a, b):</code></td>
+<td><code>f(1, 2)</code></td>
+<td>✅</td>
+<td>按顺序传，个数必须匹配</td>
+</tr>
+<tr>
+<td>关键字参数（调用方式）</td>
+<td>同上 <code>def f(a, b):</code></td>
+<td><code>f(b=2, a=1)</code></td>
+<td>✅</td>
+<td>按名字传，顺序无关；必须写在位置参数之后；名字要匹配</td>
+</tr>
+<tr>
+<td>默认参数</td>
+<td><code>def f(a, b=2):</code></td>
+<td><code>f(1)</code>、<code>f(1, b=3)</code></td>
+<td>❌</td>
+<td>不传用默认；必须放在必需参数后；默认值只在定义时求值一次</td>
+</tr>
+<tr>
+<td>可变位置参数 <code>*args</code></td>
+<td><code>def f(*args):</code></td>
+<td><code>f(1, 2, 3)</code></td>
+<td>❌</td>
+<td>多余的<strong>位置</strong>参数收进元组</td>
+</tr>
+<tr>
+<td>可变关键字参数 <code>**kwargs</code></td>
+<td><code>def f(**kwargs):</code></td>
+<td><code>f(x=1, y=2)</code></td>
+<td>❌</td>
+<td>多余的<strong>关键字</strong>参数收进字典</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">必需参数：不传不行，顺序要对</span><br><span class="line">关键字参数：名字传参，顺序随便（但在位置参数后）</span><br><span class="line">默认参数：不传有默认，默认只算一次</span><br><span class="line">*args：多余位置参数 → 元组</span><br><span class="line">**kwargs：多余关键字参数 → 字典</span><br></pre></td></tr></table></figure>
+
+<p>匿名函数（lambda）</p>
+<p>lambda [arg1 [, arg2, …, argn]]: expression</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126170003299.png" alt="image-20261126170003299"></p>
+<p>lambda a:a+10创建一个函数对象，参数是a，返回a+10</p>
+<p>x(5)调用这个函数，a&#x3D;5,计算5+10</p>
+<p>return</p>
+<p><strong>return [表达式]</strong> 语句用于退出函数，选择性地向调用方返回一个表达式。不带参数值的 return 语句返回 None</p>
+<p>强制位置参数</p>
+<p>def f(a, b, &#x2F;, c, d, *, e, f):</p>
+<table>
+<thead>
+<tr>
+<th><code>/</code> 之前</th>
+<th><code>a</code>、<code>b</code></th>
+<th><strong>只能按位置传</strong>，不能用 <code>a=...</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/</code> 与 <code>*</code> 之间</td>
+<td><code>c</code>、<code>d</code></td>
+<td>位置、关键字都行</td>
+</tr>
+<tr>
+<td><code>*</code> 之后</td>
+<td><code>e</code>、<code>f</code></td>
+<td><strong>只能按关键字传</strong>，不能按位置传</td>
+</tr>
+</tbody></table>
+<p>f(10, 20, 30, d&#x3D;40, e&#x3D;50, f&#x3D;60)</p>
+<p>19） lambda（匿名函数）</p>
+<p>lambda 函数通常与内置函数如 map()、filter() 和 reduce() 一起使用，以便在集合上执行操作</p>
+<p><img src="C:\Users\lsa\AppData\Roaming\Typora\typora-user-images\image-20261126172751059.png" alt="image-20261126172751059"></p>
+<ol>
+<li><code>lambda x: x ** 2</code>：一个匿名函数，接收 <code>x</code>，返回 <code>x</code> 的平方</li>
+<li><code>map(函数, 可迭代对象)</code>：把函数依次作用到 <code>numbers</code> 的每个元素上</li>
+<li><code>map</code> 返回的不是列表，而是一个惰性的 map 对象（迭代器）</li>
+<li>外层的 <code>list(...)</code> 把 map 对象“消费”掉，转成列表</li>
+</ol>
+<ul>
+<li><strong><code>map</code>：转换</strong>——每个元素都变一下，数量不变；</li>
+<li><strong><code>filter</code>：筛选</strong>——只留下符合条件的，数量变少；</li>
+<li><strong><code>reduce</code>：归约</strong>——把一堆元素合并成一个结果。</li>
+</ul>
 
       
     </div>
