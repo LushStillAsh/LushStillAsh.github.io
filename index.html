@@ -428,6 +428,93 @@
 <li><strong><code>filter</code>：筛选</strong>——只留下符合条件的，数量变少；</li>
 <li><strong><code>reduce</code>：归约</strong>——把一堆元素合并成一个结果。</li>
 </ul>
+<p>20）装饰器</p>
+<p>装饰器（decorator）是 Python 中的一种高级功能，用于<strong>在不修改原函数代码的前提下，动态扩展函数或类的功能</strong>。</p>
+<p>本质上，装饰器是一个函数：它接收一个函数作为参数，并返回一个新的函数（通常是对原函数的增强版本）</p>
+<p>装饰器的核心思想是：<strong>用一个函数”包装”另一个函数</strong></p>
+<p>例：</p>
+<p><img src="/images/20261127110925.png"></p>
+<table>
+<thead>
+<tr>
+<th align="center">行</th>
+<th>代码</th>
+<th>作用</th>
+<th>关键点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td><code>def decorator_function(original_function):</code></td>
+<td>装饰器入口</td>
+<td>收到的是函数对象，不是调用结果</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td><code>def wrapper(*args, **kwargs):</code></td>
+<td>造「替身」函数</td>
+<td><code>*args</code> 打包元组、<code>**kwargs</code> 打包字典；闭包记住原函数</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td><code>print(&quot;执行前&quot;)</code></td>
+<td>原函数前的附加动作</td>
+<td>调用时才执行</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td><code>result = original_function(*args, **kwargs)</code></td>
+<td>真正调用原函数</td>
+<td>参数解包；缺这行原函数永不执行</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td><code>print(&quot;执行后&quot;)</code></td>
+<td>原函数后的附加动作</td>
+<td>原函数抛异常时会被跳过</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td><code>return result</code></td>
+<td>交出返回值</td>
+<td>不写则永远返回 <code>None</code></td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td><code>return wrapper</code></td>
+<td>交出替身函数对象</td>
+<td><strong>不能加括号</strong>，加了会立刻执行</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td><code>@decorator_function</code></td>
+<td>语法糖：换名字</td>
+<td>等价于一次赋值（见下）</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td><code>def target_function():</code></td>
+<td>被装饰的原函数</td>
+<td>定义 ≠ 执行</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td><code>print(&quot;原函数执行&quot;)</code></td>
+<td>原函数体</td>
+<td>被 <code>wrapper</code> 调用时才打印</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td><code>target_function()</code></td>
+<td>顶格调用，触发一切</td>
+<td>不写 &#x3D; 0 输出</td>
+</tr>
+</tbody></table>
+<p>类装饰器</p>
+<p>除了函数，装饰器也可以作用于类。</p>
+<p>类装饰器接收一个类，并返回修改后的类或包装类。</p>
+<p>函数形式的类装饰器</p>
+<p>！<a href="/image/python1.jpg"></a></p>
 
       
     </div>
